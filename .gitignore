@@ -1,0 +1,8 @@
+# Libs Node
+node_modules
+
+# Frameworks e libs
+src/assets/bower_components
+
+# Arquivos CSS
+src/assets/css/*.css

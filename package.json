@@ -1,0 +1,15 @@
+{
+  "name": "s2it-projeto",
+  "version": "1.0.0",
+  "description": "Teste S2IT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "teste",
+    "s2it"
+  ],
+  "author": "Felipe Lopes",
+  "license": "ISC"
+}
