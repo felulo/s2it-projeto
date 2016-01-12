@@ -1,0 +1,90 @@
+<header class="main-header">
+  <h1>S2IT</h1>
+</header>
+
+<section class="main-content">
+  <div class="main-tools">
+    <form class="main-form-search">
+      <input type="search" placeholder="Search" ng-model="filterTask.name" autofocus>
+    </form>
+
+    <div class="main-add-task">
+      <button type="button" ng-click="vm.taskVM.openAdd()">Add <span>New Task</span></button>
+    </div>
+  </div>
+
+  <table class="main-table-view">
+    <thead>
+      <tr>
+        <th>Done?</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-if="vm.filteredTasks.length == 0">
+        <td colspan="4">
+          No results.
+        </td>
+      </tr>
+      <tr ng-if="vm.filteredTasks.length > 0"
+        ng-repeat="task in vm.filteredTasks = (vm.taskVM.tasks | filter:filterTask)">
+        <td data-text="Done?"><input type="checkbox" ng-model="task.done"></td>
+        <td data-text="Name">{{ task.name }}</td>
+        <td data-text="Description">{{ task.description }}</td>
+        <td data-text="Actions">
+          <button type="button" title="Edit" ng-click="vm.taskVM.openEdit($index)">
+            <i class="zmdi zmdi-edit zmdi-hc-lg"></i>
+          </button>
+          <button type="button" title="Remove" ng-click="vm.taskVM.openConfirm($index)">
+            <i class="zmdi zmdi-delete zmdi-hc-lg"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot ng-if="vm.filteredTasks.length > 0">
+      <tr>
+        <td colspan="3"></td>
+        <td ng-if="vm.filteredTasks.length > 1">Total {{ vm.filteredTasks.length }} items</td>
+        <td ng-if="vm.filteredTasks.length == 1">Total 1 item</td>
+      </tr>
+    </tfoot>
+  </table>
+</section>
+
+<footer class="main-footer">
+  <ul>
+    <li>
+      <a href="#" title="Facebook">
+        <i class="zmdi zmdi-facebook zmdi-hc-lg"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#" title="Linkedin">
+        <i class="zmdi zmdi-linkedin zmdi-hc-lg"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#" title="Twitter">
+        <i class="zmdi zmdi-twitter zmdi-hc-lg"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#" title="Google+">
+        <i class="zmdi zmdi-google-plus zmdi-hc-lg"></i>
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<alert-delete
+  ng-if="vm.taskVM.confirmDelete"
+  callback-success="vm.taskVM.removeTask()"
+  callback-error="vm.taskVM.closeForm()"></alert-delete>
+<form-task
+  ng-if="vm.taskVM.showForm"
+  edit="vm.taskVM.edit"
+  task="vm.taskVM.taskSelect"
+  callback-success="vm.taskVM.addTask(name, description)"
+  callback-error="vm.taskVM.closeForm()"></form-task>

@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "angularjs#~1.4.8"
+    "angular": "angularjs#~1.4.8",
+    "angular-route": "~1.4.8"
   }
 }

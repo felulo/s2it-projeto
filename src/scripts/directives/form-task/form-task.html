@@ -1,0 +1,23 @@
+<div class="modal-form">
+  <div class="modal">
+    <section class="modal-content">
+      <header>
+        <h2 ng-if="!edit">Add</h2>
+        <h2 ng-if="edit">Edit</h2>
+      </header>
+      <section>
+        <form>
+          <input type="text" placeholder="Name" ng-model="name">
+          <input type="text" placeholder="Description" ng-model="description">
+        </form>
+      </section>
+      <footer>
+        <button type="button" ng-if="!edit" ng-click="success()">Add</button>
+        <button type="button" ng-if="edit" ng-click="success()">Edit</button>
+        <button type="button" class="cancel" ng-click="callbackError()">Cancel</button>
+      </footer>
+    </section>
+  </div>
+
+  <div class="modal-overlay modal-overlay-in"></div>
+</div>

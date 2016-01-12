@@ -1,13 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Teste S2IT</title>
 
+    <link rel="stylesheet" type="text/css" href="assets/css/material-design-iconic-font.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
   </head>
   <body>
+    <main ng-view></main>
 
+    <!-- bower_components -->
+    <script src="assets/bower_components/angular/angular.js"></script>
+    <script src="assets/bower_components/angular-route/angular-route.js"></script>
+
+    <!-- Aplicação -->
+    <script src="scripts/directives/alert/alert-delete.module.js"></script>
+    <script src="scripts/directives/alert/alert-delete.js"></script>
+    <script src="scripts/directives/form-task/form-task.module.js"></script>
+    <script src="scripts/directives/form-task/form-task.js"></script>
+    <script src="scripts/directives/directive.module.js"></script>
+    <script src="scripts/factories/viewmodels/viewmodel.module.js"></script>
+    <script src="scripts/factories/viewmodels/task.vm.js"></script>
+    <script src="scripts/app.module.js"></script>
+    <script src="scripts/app.routes.js"></script>
+    <script src="scripts/controllers/home.js"></script>
   </body>
 </html>
