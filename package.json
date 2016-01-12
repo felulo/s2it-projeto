@@ -11,5 +11,8 @@
     "s2it"
   ],
   "author": "Felipe Lopes",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.7.2"
+  }
 }
